@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - LUXE Fashion</title>
+    <link rel="shortcut icon" href="wardrobe.png" type="image/x-icon">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="profile.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2><a href="index.html">LUXE</a></h2>
+            </div>
+            <div class="user-greeting">
+                <span id="profile-greeting"></span>
+            </div>
+            <div class="nav-icons">
+                <a href="index.html" class="nav-link" style="text-decoration: none; color: rgb(255, 251, 251); background-color: black; padding: 10px 15px; border-radius: 4px;">Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="profile-container">
+        <!-- Sidebar -->
+        <div class="profile-sidebar">
+            <div class="profile-info">
+                <div class="profile-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h3 id="profile-name">John Doe</h3>
+                <p id="profile-email">john@example.com</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-section="orders">
+                    <i class="fas fa-box"></i>
+                    My Orders
+                </a>
+                <a href="#" class="nav-item" data-section="wishlist">
+                    <i class="fas fa-heart"></i>
+                    Wishlist
+                </a>
+                <a href="#" class="nav-item" data-section="cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    Cart
+                </a>
+                <a href="#" class="nav-item" data-section="tracking">
+                    <i class="fas fa-truck"></i>
+                    Order Tracking
+                </a>
+                <div class="nav-divider"></div>
+                <h4>Customer Service</h4>
+                <a href="/services/faq.html" class="nav-item">
+                    <i class="fas fa-question-circle"></i>
+                    FAQ
+                </a>
+                <a href="/services/returns.html" class="nav-item">
+                    <i class="fas fa-undo"></i>
+                    Returns & Refunds
+                </a>
+                <a href="/services/shipping-info.html" class="nav-item">
+                    <i class="fas fa-shipping-fast"></i>
+                    Shipping Policy
+                </a>
+                <a href="/services/support.html" class="nav-item">
+                    <i class="fas fa-headset"></i>
+                    Support
+                </a>
+                <a href="/services/size-guide.html" class="nav-item">
+                    	<i class="fas fa-shirt"></i>
+                    Size Guide
+                </a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="profile-content">
+            <!-- My Orders Section -->
+            <div class="content-section active" id="orders-section">
+                <h2>My Orders</h2>
+                <div class="orders-container" id="orders-container">
+                    <!-- Orders will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Wishlist Section -->
+            <div class="content-section" id="wishlist-section">
+                <h2>My Wishlist</h2>
+                <div class="wishlist-grid" id="profile-wishlist">
+                    <!-- Wishlist items will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Cart Section -->
+            <div class="content-section" id="cart-section">
+                <h2>Shopping Cart</h2>
+                <div class="cart-container" id="profile-cart">
+                    <!-- Cart items will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Order Tracking Section -->
+            <div class="content-section" id="tracking-section">
+                <h2>Order Tracking</h2>
+                <div class="tracking-container">
+                    <div class="tracking-input">
+                        <input type="text" id="tracking-number" placeholder="Enter order number">
+                        <button onclick="trackOrder()">Track Order</button>
+                    </div>
+                    <div class="tracking-result" id="tracking-result">
+                        <!-- Tracking results will be shown here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="profile.js"></script>
+</body>
+
+</html>

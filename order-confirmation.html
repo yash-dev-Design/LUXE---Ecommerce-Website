@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Orders - LUXE Fashion</title>
+  <link rel="shortcut icon" href="wardrobe.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #f7f7f7;
+}
+
+.orders-container {
+  padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.orders-wrapper {
+  width: 100%;
+  max-width: 900px;
+}
+
+.orders-wrapper h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #2c2c2c;
+}
+
+.no-orders {
+  text-align: center;
+  color: #666;
+  font-size: 1.2rem;
+  margin-top: 3rem;
+}
+
+.order-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.order-id,
+.order-date,
+.order-status {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.order-items {
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 1rem 0;
+  margin: 1rem 0;
+}
+
+.order-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.order-item img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 1rem;
+}
+
+.item-name {
+  font-weight: 600;
+  margin: 0;
+  color: #2c2c2c;
+}
+
+.item-qty,
+.item-price {
+  margin: 2px 0;
+  color: #555;
+}
+
+.order-summary {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.order-summary p {
+  margin: 5px 0;
+}
+
+.order-total {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .order-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .order-item img {
+    margin-bottom: 0.5rem;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <section class="orders-container">
+    <div class="orders-wrapper">
+      <h1>My Orders</h1>
+      <div id="orders-list" class="orders-list"></div>
+    </div>
+  </section>
+
+  <script>
+    const orders = JSON.parse(localStorage.getItem("orders")) || [];
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+    const ordersList = document.getElementById("orders-list");
+
+    if (!currentUser) {
+      window.location.href = "signin.html";
+    }
+
+    if (orders.length === 0) {
+      ordersList.innerHTML = "<p class='no-orders'>You have no orders yet.</p>";
+    } else {
+      const userOrders = orders.filter(order => order.userId === currentUser.id);
+
+      if (userOrders.length === 0) {
+        ordersList.innerHTML = "<p class='no-orders'>You have no orders yet.</p>";
+      } else {
+        userOrders.reverse().forEach(order => {
+          const orderEl = document.createElement("div");
+          orderEl.className = "order-card";
+          orderEl.innerHTML = `
+            <div class="order-id"><strong>Order ID:</strong> ${order.id}</div>
+            <div class="order-date"><strong>Date:</strong> ${new Date(order.date).toLocaleDateString()}</div>
+            <div class="order-status"><strong>Status:</strong> ${order.status}</div>
+            <div class="order-items">
+              ${order.items.map(item => `
+                <div class="order-item">
+                  <img src="${item.image}" alt="${item.name}">
+                  <div>
+                    <p class="item-name">${item.name}</p>
+                    <p class="item-qty">Qty: ${item.quantity}</p>
+                    <p class="item-price">$${item.price.toFixed(2)}</p>
+                  </div>
+                </div>
+              `).join("")}
+            </div>
+            <div class="order-summary">
+              <p><strong>Subtotal:</strong> $${order.subtotal.toFixed(2)}</p>
+              <p><strong>Shipping:</strong> $${order.shipping.toFixed(2)}</p>
+              <p><strong>Tax:</strong> $${order.tax.toFixed(2)}</p>
+              <p class="order-total"><strong>Total:</strong> $${order.total.toFixed(2)}</p>
+            </div>
+          `;
+          ordersList.appendChild(orderEl);
+        });
+      }
+    }
+  </script>
+</body>
+</html>

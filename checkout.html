@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - LUXE Fashion</title>
+    <link rel="shortcut icon" href="wardrobe.png" type="image/x-icon">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="checkout.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2><a href="index.html">LUXE</a></h2>
+            </div>
+            <div class="checkout-steps">
+                <span class="step active" style="border-radius: 4px;">Cart</span>
+                <span class="step active"style="border-radius: 4px;">Checkout</span>
+                <span class="step" style="border-radius: 4px;">Payment</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="checkout-container">
+        <div class="checkout-content">
+            <div class="checkout-form">
+                <h2>Shipping Information</h2>
+                <form id="checkout-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" name="lastName" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="tel" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Address</label>
+                        <input type="text" name="address" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>City</label>
+                            <input type="text" name="city" required>
+                        </div>
+                        <div class="form-group">
+                            <label>State</label>
+                            <input type="text" name="state" required>
+                        </div>
+                        <div class="form-group">
+                            <label>ZIP Code</label>
+                            <input type="text" name="zip" required>
+                        </div>
+                    </div>
+                </form>
+
+                <h2>Payment Method</h2>
+                <div class="payment-methods">
+                    <div class="payment-option">
+                        <input type="radio" id="paypal" name="payment" value="paypal">
+                        <label for="paypal">
+                            <i class="fab fa-paypal"></i>
+                            PayPal
+                        </label>
+                    </div>
+                    <div class="payment-option">
+                        <input type="radio" id="razorpay" name="payment" value="razorpay">
+                        <label for="razorpay">
+                            <i class="fas fa-credit-card"></i>
+                            Razorpay
+                        </label>
+                    </div>
+                    <div class="payment-option">
+                        <input type="radio" id="phonepe" name="payment" value="phonepe">
+                        <label for="phonepe">
+                            <i class="fas fa-mobile-alt"></i>
+                            PhonePe
+                        </label>
+                    </div>
+                    <div class="payment-option">
+                        <input type="radio" id="gpay" name="payment" value="gpay">
+                        <label for="gpay">
+                            <i class="fab fa-google-pay"></i>
+                            Google Pay
+                        </label>
+                    </div>
+                    <div class="payment-option">
+                        <input type="radio" id="paytm" name="payment" value="paytm">
+                        <label for="paytm">
+                            <i class="fas fa-wallet"></i>
+                            Paytm
+                        </label>
+                    </div>
+                    <div class="payment-option">
+                        <input type="radio" id="cod" name="payment" value="cod">
+                        <label for="cod">
+                            <i class="fas fa-wallet"></i>
+                            COD
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="order-summary">
+                <h2>Order Summary</h2>
+                <div class="summary-items" id="checkout-items">
+                    <!-- Items will be loaded here -->
+                </div>
+                <div class="summary-totals">
+                    <div class="total-row">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">$0.00</span>
+                    </div>
+                    <div class="total-row">
+                        <span>Shipping:</span>
+                        <span id="shipping">$10.00</span>
+                    </div>
+                    <div class="total-row">
+                        <span>Tax:</span>
+                        <span id="tax">$0.00</span>
+                    </div>
+                    <div class="total-row final">
+                        <span>Total:</span>
+                        <span id="final-total">$0.00</span>
+                    </div>
+                </div>
+                <button class="place-order-btn" onclick="placeOrder()">Place Order</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="checkout.js"></script>
+</body>
+
+</html>
