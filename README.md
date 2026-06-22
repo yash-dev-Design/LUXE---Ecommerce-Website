@@ -100,3 +100,78 @@ fYASHion/
 │   └── fonts/
 │
 └── README.md
+
+🚀 Getting Started
+Clone Repository
+git clone https://github.com/yourusername/fYASHion.git
+Navigate Into Project
+cd fYASHion
+Run Locally
+
+Simply open:
+
+index.html
+
+or use Live Server.
+
+🎯 Objectives
+
+The primary goals of this project were:
+
+Build a premium fashion UI
+Improve frontend design skills
+Practice responsive layouts
+Create a portfolio-ready project
+Explore modern e-commerce interfaces
+📸 Screenshots
+Home Page
+
+Add screenshot here
+
+![Homepage](screenshots/home.png)
+Product Section
+
+Add screenshot here
+
+![Products](screenshots/products.png)
+📈 Future Enhancements
+User authentication
+Shopping cart functionality
+Wishlist system
+Product filtering
+Payment integration
+Order tracking
+Backend API support
+🎨 UI Highlights
+
+✅ Premium Fashion Aesthetic
+
+✅ Modern Product Layouts
+
+✅ Responsive Design
+
+✅ Interactive Elements
+
+✅ Clean User Experience
+
+👨‍💻 Author
+Mohammed Mastan Vali Yash
+
+Frontend Developer • Full Stack Developer • UI/UX Designer • AI Automation Engineer
+
+🌐 Portfolio: https://mmvyash.netlify.app/
+
+💼 LinkedIn:
+https://www.linkedin.com/in/yash-370744188/
+
+⭐ Support
+
+If you found this project helpful:
+
+⭐ Star the repository
+
+🍴 Fork the project
+
+📢 Share with others
+
+Made with ❤️ by Yash Royz
